@@ -42,10 +42,10 @@
 
 			<?php echo form_open('login', array('id' => 'formValidation')) ?>
 			<div class="form-group has-feedback">
-				<input type="text" class="form-control" placeholder="Masukkan Username" name="username">
+				<input type="text" class="form-control" placeholder="Masukkan Username" name="username" autocomplete="off">
 			</div>
 			<div class="form-group has-feedback">
-				<input type="password" class="form-control" placeholder="Masukkan Password" name="password">
+				<input type="password" class="form-control" placeholder="Masukkan Password" name="password" autocomplete="off">
 			</div>
 			<div class="row">
 				<!-- /.col -->
