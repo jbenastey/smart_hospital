@@ -11,7 +11,7 @@
             <!-- small box -->
             <div class="small-box bg-info-gradient">
                 <div class="inner">
-                    <h3><?= $this->db->count_all_results('sbk_siswa')?></h3>
+                    <h3><?= $this->db->count_all_results('user')?></h3>
                     <p>Staff</p>
                 </div>
                 <div class="icon">
@@ -25,7 +25,7 @@
             <!-- small box -->
             <div class="small-box bg-danger-gradient">
                 <div class="inner">
-                    <h3><?= $this->db->count_all_results('sbk_pelanggaran')?></h3>
+                    <h3><?= $this->db->count_all_results('poli')?></h3>
 
                     <p>Poli</p>
                 </div>
@@ -40,7 +40,7 @@
             <!-- small box -->
             <div class="small-box bg-warning-gradient">
                 <div class="inner">
-                    <h3><?= $this->db->count_all_results('sbk_laporan')?></h3>
+                    <h3><?= $this->db->count_all_results('kunjungan')?></h3>
 
                     <p>Prediksi</p>
                 </div>
