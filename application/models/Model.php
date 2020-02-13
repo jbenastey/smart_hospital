@@ -22,8 +22,26 @@ class Model extends CI_Model
 		}
 	}
 
+	public function first($table,$key,$id){
+		$this->db->from($table);
+		$this->db->where($key,$id);
+		return $this->db->get()->row_array();
+	}
+
 	public function insert($table,$data){
 		$this->db->insert($table,$data);
+		return $this->db->affected_rows();
+	}
+
+	public function update($table,$key,$id,$data){
+		$this->db->where($key,$id);
+		$this->db->update($table,$data);
+		return $this->db->affected_rows();
+	}
+
+	public function delete($table,$key,$id){
+		$this->db->where($key,$id);
+		$this->db->delete($table);
 		return $this->db->affected_rows();
 	}
 }

@@ -80,7 +80,7 @@ $route['bukti'] = 'AuthController/lihat_bukti';
 $route['poli'] = 'PoliController/index';
 $route['poli/create'] = 'PoliController/create';
 $route['poli/update/(:any)'] = 'PoliController/update/$1';
-$route['poli/hapus/(:any)'] = 'PoliController/hapus/$1';
+$route['poli/hapus/(:any)'] = 'PoliController/delete/$1';
 
 
 $route['default_controller'] = 'welcome';

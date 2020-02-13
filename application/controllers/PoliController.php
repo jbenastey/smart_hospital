@@ -37,4 +37,32 @@ class PoliController extends CI_Controller{
 			redirect('poli');
 		}
 	}
+
+	public function update($id){
+		$data['poli'] = $this->Model->first('poli','id_poli',$id);
+		if (isset($_POST['update'])) {
+			$nama = $this->input->post('nama');
+			$keterangan = $this->input->post('keterangan');
+
+			$data = array(
+				'id_user' => $this->session->userdata('session_id'),
+				'nama_poli' => $nama,
+				'status' => 'Aktif',
+				'keterangan' => $keterangan,
+			);
+			$this->Model->update('poli','id_poli',$id, $data);
+			$this->session->set_flashdata('alert', 'update');
+			redirect('poli');
+		} else {
+			$this->load->view('templates/header');
+			$this->load->view('poli/update', $data);
+			$this->load->view('templates/footer');
+		}
+	}
+
+	public function delete($id){
+		$this->Model->delete('poli','id_poli',$id);
+		$this->session->set_flashdata('alert', 'delete');
+		redirect('poli');
+	}
 }
