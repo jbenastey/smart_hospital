@@ -100,6 +100,9 @@
 							</p>
 						</a>
 					</li>
+					<?php
+					if($this->session->userdata('session_jenis_level') == 'Kepala Instalasi RM'):
+					?>
 					<li class="nav-item has-treeview">
 						<a href="#" class="nav-link">
 							<i class="nav-icon fa fa-pie-chart"></i>
@@ -123,6 +126,9 @@
 							</li>
 						</ul>
 					</li>
+					<?php
+					endif
+					?>
 					<li class="nav-item">
 						<a href="<?= base_url('kunjungan') ?>" class="nav-link">
 							<i class="nav-icon fa fa-address-book"></i>
