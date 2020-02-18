@@ -49,38 +49,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['siswa'] = 'SiswaController/index';
-$route['siswa/create'] = 'SiswaController/create';
-$route['siswa/update/(:any)'] = 'SiswaController/update/$1';
-$route['siswa/hapus/(:any)'] = 'SiswaController/hapus/$1';
-$route['siswa/lihat/(:any)'] = 'SiswaController/view/$1';
-
-$route['pelanggaran'] = 'PelanggaranController/index';
-$route['pelanggaran/(:any)'] = 'PelanggaranController/index2/$1';
-$route['pelanggaran/create'] = 'PelanggaranController/create';
-$route['pelanggaran/update/(:any)'] = 'PelanggaranController/update/$1';
-$route['pelanggaran/hapus/(:any)'] = 'PelanggaranController/hapus/$1';
-
-$route['laporan'] = 'LaporanController/index';
-$route['laporan/create'] = 'LaporanController/create';
-$route['laporan/view/(:any)'] = 'LaporanController/view/$1';
-$route['laporan/update/(:any)'] = 'LaporanController/update/$1';
-$route['laporan/cetak/(:any)/(:any)'] = 'LaporanController/cetak/$1/$2';
-$route['laporan/ajaxSiswa/(:any)'] = 'LaporanController/ajaxSiswa/$1';
-
-$route['rekap'] = 'RekapController/index';
-$route['rekap/view/(:any)/(:any)'] = 'RekapController/view/$1/$2';
-
 $route['login'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
-$route['uploadbukti'] = 'AuthController/uploadBukti';
-$route['bukti'] = 'AuthController/lihat_bukti';
-
 
 $route['poli'] = 'PoliController/index';
 $route['poli/create'] = 'PoliController/create';
 $route['poli/update/(:any)'] = 'PoliController/update/$1';
 $route['poli/hapus/(:any)'] = 'PoliController/delete/$1';
+
+$route['staff'] = 'StaffController/index';
+$route['staff/create'] = 'StaffController/create';
+$route['staff/update/(:any)'] = 'StaffController/update/$1';
+$route['staff/hapus/(:any)'] = 'StaffController/delete/$1';
 
 
 $route['default_controller'] = 'welcome';
