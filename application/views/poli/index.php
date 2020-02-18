@@ -31,6 +31,7 @@
 				<th>No</th>
 				<th>Nama Poli</th>
 				<th>Keterangan</th>
+				<th>Status</th>
 				<th class="text-center" width="17%"><i class="fa fa-gear"></i></th>
 			</tr>
 			</thead>
@@ -43,6 +44,7 @@
 					<td><?= $nomor ?></td>
 					<td><?= $value['nama_poli'] ?></td>
 					<td><?= $value['keterangan'] ?></td>
+					<td><?= $value['status'] ?></td>
 					<td>
 						<a href="<?= base_url('poli/update/') . $value['id_poli'] ?>"
 						   class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit &nbsp;&nbsp;</a>

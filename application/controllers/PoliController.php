@@ -43,11 +43,12 @@ class PoliController extends CI_Controller{
 		if (isset($_POST['update'])) {
 			$nama = $this->input->post('nama');
 			$keterangan = $this->input->post('keterangan');
+			$status = $this->input->post('status');
 
 			$data = array(
 				'id_user' => $this->session->userdata('session_id'),
 				'nama_poli' => $nama,
-				'status' => 'Aktif',
+				'status' => $status,
 				'keterangan' => $keterangan,
 			);
 			$this->Model->update('poli','id_poli',$id, $data);

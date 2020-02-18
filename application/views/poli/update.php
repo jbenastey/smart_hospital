@@ -14,6 +14,13 @@
 			<textarea class="form-control" name="keterangan" placeholder="Input Keterangan" required rows="3"
 					  autocomplete="off"><?= $poli['keterangan'] ?></textarea>
 		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Status</label>
+			<select name="status" class="form-control" id="exampleInputEmail1">
+				<option <?php if($poli['status'] == 'Aktif') echo 'selected'?> >Aktif</option>
+				<option <?php if($poli['status'] == 'Tidak Aktif') echo 'selected'?> >Tidak Aktif</option>
+			</select>
+		</div>
 		<button type="submit" class="btn btn-primary" name="update">Update</button>
 		<button type="button" class="btn btn-default" onclick="return window.history.back()">Kembali</button>
 		<?= form_close() ?>
