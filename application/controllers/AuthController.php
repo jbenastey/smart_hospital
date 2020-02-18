@@ -38,7 +38,13 @@ class AuthController extends CI_Controller
 				'password' => md5($password)
 			);
 
-			$validate = $this->User->get_users($user)->num_rows();
+			$userValidate = array(
+				'username' => $username,
+				'password' => md5($password),
+				'status' => 'Aktif'
+			);
+
+			$validate = $this->User->get_users($userValidate)->num_rows();
 			$admin = $this->User->get_user_account($user);
 			if ($validate > 0) {
 				$data_session = array(
