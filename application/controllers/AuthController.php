@@ -14,7 +14,7 @@ class AuthController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$model = array('User', 'Laporan');
+		$model = array('User');
 		$this->load->model($model);
 	}
 

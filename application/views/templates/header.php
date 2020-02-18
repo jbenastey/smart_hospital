@@ -141,6 +141,24 @@
 							</p>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a href="<?= base_url('laporan') ?>" class="nav-link">
+							<i class="nav-icon fa fa-files-o"></i>
+							<p>
+								Laporan
+								<span class="right badge badge-danger"></span>
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url('ganti-password') ?>" class="nav-link">
+							<i class="nav-icon fa fa-lock"></i>
+							<p>
+								Ganti Password
+								<span class="right badge badge-danger"></span>
+							</p>
+						</a>
+					</li>
 				</ul>
 			</nav>
 			<!-- /.sidebar-menu -->
