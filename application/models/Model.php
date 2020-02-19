@@ -44,4 +44,34 @@ class Model extends CI_Model
 		$this->db->delete($table);
 		return $this->db->affected_rows();
 	}
+
+	public function getKunjungan($tahun){
+		$this->db->from('kunjungan');
+		$this->db->join('poli','poli.id_poli = kunjungan.id_poli');
+		$this->db->where('tahun',$tahun);
+		$this->db->order_by('id_kunjungan','DESC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function cekKunjunganBulan($tahun,$bulan){
+		$this->db->from('kunjungan');
+		$this->db->join('poli','poli.id_poli = kunjungan.id_poli');
+		$this->db->where('tahun',$tahun);
+		$this->db->where('bulan',$bulan);
+		$this->db->order_by('id_kunjungan','DESC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function cekKunjunganPoli($tahun,$bulan,$idPoli){
+		$this->db->from('kunjungan');
+		$this->db->join('poli','poli.id_poli = kunjungan.id_poli');
+		$this->db->where('tahun',$tahun);
+		$this->db->where('bulan',$bulan);
+		$this->db->where('kunjungan.id_poli',$idPoli);
+		$this->db->order_by('id_kunjungan','DESC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }

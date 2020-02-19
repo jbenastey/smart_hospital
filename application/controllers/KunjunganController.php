@@ -29,6 +29,7 @@ class KunjunganController extends CI_Controller
 	{
 		$data = array(
 			'tahun' => $tahun,
+			'kunjungan' => $this->Model->getKunjungan($tahun)
 		);
 		$this->load->view('templates/header');
 		$this->load->view('kunjungan/view',$data);
@@ -45,9 +46,15 @@ class KunjunganController extends CI_Controller
 				'bulan' => $this->input->post('bulan'),
 				'jumlah_kunjungan' => $this->input->post('jumlah'),
 			);
-			$this->Model->insert('kunjungan',$data);
-			$this->session->set_flashdata('alert', 'insert');
-			redirect('kunjungan/view/'.$tahun);
+			$cekPoli = $this->Model->cekKunjunganPoli($tahun,$data['bulan'],$data['id_poli']);
+			if (count($cekPoli) == 0){
+				$this->Model->insert('kunjungan',$data);
+				$this->session->set_flashdata('alert', 'insert');
+				redirect('kunjungan/view/'.$tahun);
+			}else{
+				$this->session->set_flashdata('alert', 'month exist');
+				redirect('kunjungan/view/'.$tahun);
+			}
 		}
 		$data = array(
 			'tahun' => $tahun,

@@ -6,10 +6,10 @@
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 				Data Berhasil disimpan
 			</div>
-		<?php elseif ($this->session->flashdata('alert') == 'update_pelanggaran'): ?>
-			<div class="alert alert-success alert-dismissible" id="feedback">
+		<?php elseif ($this->session->flashdata('alert') == 'month exist'): ?>
+			<div class="alert alert-warning alert-dismissible" id="feedback">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Data Berhasil diupdate
+				Bulan Sudah Ada
 			</div>
 		<?php elseif ($this->session->flashdata('alert') == 'delete'): ?>
 			<div class="alert alert-danger alert-dismissible" id="feedback">
@@ -22,9 +22,15 @@
 	<!-- /.card-header -->
 	<div class="card-body">
 		<table id="example1" class="table table-bordered table-striped">
-			<a href="<?= base_url('kunjungan/create/'.$tahun) ?>" class="btn btn-primary btn-sm"
-			   style="float: right; margin-left: 5px" ><i class="fa fa-plus-circle"></i> Tambah data kunjungan
-			</a>
+			<?php
+			if($this->session->userdata('session_level') == 'Staff RM'):
+			?>
+				<a href="<?= base_url('kunjungan/create/'.$tahun) ?>" class="btn btn-primary btn-sm"
+				   style="float: right; margin-left: 5px" ><i class="fa fa-plus-circle"></i> Tambah data kunjungan
+				</a>
+			<?php
+			endif
+			?>
 			<thead>
 			<tr>
 				<th>No</th>
@@ -34,6 +40,23 @@
 				<th class="text-center" width="17%"><i class="fa fa-gear"></i></th>
 			</tr>
 			</thead>
+			<tbody>
+			<?php
+			$nomor = 1;
+			foreach($kunjungan as $key=>$value):
+			?>
+			<tr>
+				<td><?= $nomor ?></td>
+				<td><?= $value['bulan'] ?></td>
+				<td><?= $value['nama_poli'] ?></td>
+				<td><?= $value['jumlah_kunjungan'] ?></td>
+				<td></td>
+			</tr>
+			<?php
+			$nomor++;
+			endforeach;
+			?>
+			</tbody>
 		</table>
 	</div>
 	<!-- /.card-body -->
