@@ -92,7 +92,7 @@
 					<!-- Add icons to the links using the .nav-icon class
 						 with font-awesome or any other icon font library -->
 					<li class="nav-item">
-						<a href="<?= base_url('') ?>" class="nav-link">
+						<a href="<?= base_url('') ?>" class="nav-link <?php if($this->uri->segment(1) == '') echo 'active'?>">
 							<i class="nav-icon fa fa-home"></i>
 							<p>
 								Beranda
@@ -130,7 +130,7 @@
 					endif
 					?>
 					<li class="nav-item">
-						<a href="<?= base_url('kunjungan') ?>" class="nav-link">
+						<a href="<?= base_url('kunjungan') ?>"  class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
 							<i class="nav-icon fa fa-address-book"></i>
 							<p>
 								Kunjungan
