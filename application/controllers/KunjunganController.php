@@ -65,4 +65,30 @@ class KunjunganController extends CI_Controller
 		$this->load->view('kunjungan/create',$data);
 		$this->load->view('templates/footer');
 	}
+
+	public function update($id){
+		$data['kunjungan'] = $this->Model->first('kunjungan','id_kunjungan',$id);
+		$data['poli'] = $this->Model->get('poli','id_poli');
+		if (isset($_POST['update'])) {
+			$dataKunjungan = array(
+				'id_poli' => $this->input->post('poli'),
+				'bulan' => $this->input->post('bulan'),
+				'jumlah_kunjungan' => $this->input->post('jumlah'),
+			);
+			$this->Model->update('kunjungan','id_kunjungan',$id, $dataKunjungan);
+			$this->session->set_flashdata('alert', 'update');
+			redirect('kunjungan/view/'.$data['kunjungan']['tahun']);
+		} else {
+			$this->load->view('templates/header');
+			$this->load->view('kunjungan/update', $data);
+			$this->load->view('templates/footer');
+		}
+	}
+
+	public function delete($id){
+		$data = $this->Model->first('kunjungan','id_kunjungan',$id);
+		$this->Model->delete('kunjungan','id_kunjungan',$id);
+		$this->session->set_flashdata('alert', 'delete');
+		redirect('kunjungan/view/'.$data['tahun']);
+	}
 }

@@ -16,6 +16,11 @@
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 				Data Berhasil dihapus
 			</div>
+		<?php elseif ($this->session->flashdata('alert') == 'update'): ?>
+			<div class="alert alert-success alert-dismissible" id="feedback">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				Data Berhasil diubah
+			</div>
 		<?php
 		endif; ?>
 	</div>
@@ -50,7 +55,15 @@
 				<td><?= $value['bulan'] ?></td>
 				<td><?= $value['nama_poli'] ?></td>
 				<td><?= $value['jumlah_kunjungan'] ?></td>
-				<td></td>
+				<td>
+					<a href="<?= base_url('kunjungan/update/') . $value['id_kunjungan'] ?>"
+					   class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit &nbsp;&nbsp;</a>
+					<a
+						href="<?= base_url('kunjungan/hapus/') . $value['id_kunjungan'] ?>"
+						class="btn btn-outline-danger btn-sm"
+						onclick="return confirm('Apakah anda ingin menghapus')"><i class="fa fa-trash"></i>
+						Hapus</a>
+				</td>
 			</tr>
 			<?php
 			$nomor++;
