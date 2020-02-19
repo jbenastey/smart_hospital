@@ -101,7 +101,7 @@
 						</a>
 					</li>
 					<?php
-					if($this->session->userdata('session_jenis_level') == 'Kepala Instalasi RM'):
+					if($this->session->userdata('session_level') == 'Kepala Instalasi RM'):
 					?>
 					<li class="nav-item has-treeview">
 						<a href="#" class="nav-link">
