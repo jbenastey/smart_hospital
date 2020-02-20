@@ -67,6 +67,7 @@ $route['kunjungan/view/(:any)'] = 'KunjunganController/view/$1';
 $route['kunjungan/create/(:any)'] = 'KunjunganController/create/$1';
 $route['kunjungan/update/(:any)'] = 'KunjunganController/update/$1';
 $route['kunjungan/hapus/(:any)'] = 'KunjunganController/delete/$1';
+$route['kunjungan/laporan/(:any)'] = 'KunjunganController/laporan/$1';
 
 
 $route['default_controller'] = 'welcome';

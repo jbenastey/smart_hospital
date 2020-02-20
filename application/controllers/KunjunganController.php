@@ -91,4 +91,130 @@ class KunjunganController extends CI_Controller
 		$this->session->set_flashdata('alert', 'delete');
 		redirect('kunjungan/view/'.$data['tahun']);
 	}
+
+	public function laporan($tahun){
+		$data = array(
+			'tahun' => $tahun,
+			'kunjungan' => $this->Model->getKunjungan($tahun),
+			'poli' => $this->Model->getPoli($tahun),
+			'bulan' => array(
+				'jan' => array(),
+				'feb' => array(),
+				'mar' => array(),
+				'apr' => array(),
+				'mei' => array(),
+				'jun' => array(),
+				'jul' => array(),
+				'ags' => array(),
+				'sep' => array(),
+				'okt' => array(),
+				'nov' => array(),
+				'des' => array(),
+			)
+		);
+		
+		foreach ($data['kunjungan'] as $value){
+			if ($value['bulan'] == 'Januari'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['jan'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Februari'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['feb'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Maret'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['mar'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'April'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['apr'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Mei'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['mei'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Juni'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['jun'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Juli'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['jul'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Agustus'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['ags'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'September'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['sep'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Oktober'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['okt'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'November'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['nov'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}elseif ($value['bulan'] == 'Desember'){
+				foreach ($data['poli'] as $datum) {
+					if ($datum['nama_poli'] == $value['nama_poli']){
+						$data['bulan']['des'] += array(
+							$value['nama_poli'] => $value['jumlah_kunjungan']
+						);
+					}
+				}
+			}
+		}
+
+		$this->load->view('templates/header');
+		$this->load->view('kunjungan/laporan',$data);
+		$this->load->view('templates/footer');
+	}
 }

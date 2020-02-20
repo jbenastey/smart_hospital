@@ -36,6 +36,9 @@
 			<?php
 			endif
 			?>
+			<a href="<?= base_url('kunjungan/laporan/'.$tahun) ?>" class="btn btn-success btn-sm"
+			   style="float: right;" ><i class="fa fa-table"></i> Lihat Laporan
+			</a>
 			<thead>
 			<tr>
 				<th>No</th>
