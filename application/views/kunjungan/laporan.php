@@ -4,17 +4,21 @@
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped text-center">
 			<thead class="text-center">
 			<tr>
 				<th rowspan="2" width="2%">No</th>
 				<th rowspan="2">Bulan</th>
-				<th colspan="2">Poliklinik</th>
+				<th colspan="<?= count($poli) ?>">Poliklinik</th>
 				<th rowspan="2">Jumlah</th>
 			</tr>
 			<tr>
 				<?php
+				$jumlahPoli = array();
 				foreach ($poli as $key => $value):
+					$jumlahPoli += array(
+						$value['nama_poli'] => 0
+					)
 					?>
 					<th><?= $value['nama_poli'] ?></th>
 				<?php
@@ -28,12 +32,15 @@
 				<td>Januari</td>
 				<?php
 				$jumlah = 0;
+				$jumlahKunjungan = 0;
 				foreach ($poli as $key => $value):
 					?>
 					<td><?= $bulan['jan'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['jan'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['jan'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -47,7 +54,9 @@
 					<td><?= $bulan['feb'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['feb'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['feb'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -61,7 +70,9 @@
 					<td><?= $bulan['mar'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['mar'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['mar'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -75,7 +86,9 @@
 					<td><?= $bulan['apr'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['apr'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['apr'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -89,7 +102,9 @@
 					<td><?= $bulan['mei'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['mei'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['mei'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -103,7 +118,9 @@
 					<td><?= $bulan['jun'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['jun'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['jun'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -117,7 +134,9 @@
 					<td><?= $bulan['jul'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['jul'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['jul'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -131,7 +150,9 @@
 					<td><?= $bulan['ags'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['ags'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['ags'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -145,7 +166,9 @@
 					<td><?= $bulan['sep'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['sep'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['sep'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -159,7 +182,9 @@
 					<td><?= $bulan['okt'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['okt'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['okt'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -173,7 +198,9 @@
 					<td><?= $bulan['nov'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['nov'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['nov'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -187,7 +214,9 @@
 					<td><?= $bulan['des'][$value['nama_poli']] ?></td>
 					<?php
 					$jumlah += $bulan['des'][$value['nama_poli']];
+					$jumlahPoli[$value['nama_poli']] += $bulan['des'][$value['nama_poli']];
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
 				<td><?= $jumlah ?></td>
 			</tr>
@@ -198,11 +227,12 @@
 				<?php
 				foreach ($poli as $key => $value):
 					?>
-					<td></td>
+					<th><?= $jumlahPoli[$value['nama_poli']] ?></th>
 				<?php
 				endforeach;
+				$jumlahKunjungan += $jumlah;
 				?>
-				<th></th>
+				<th><?= $jumlahKunjungan ?></th>
 			</tr>
 			</tfoot>
 		</table>
