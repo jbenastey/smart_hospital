@@ -154,7 +154,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url('ganti-password') ?>" class="nav-link">
+						<a href="<?= base_url('ganti-password') ?>" class="nav-link <?php if($this->uri->segment(1) == 'ganti-password') echo 'active'?>">
 							<i class="nav-icon fa fa-lock"></i>
 							<p>
 								Ganti Password

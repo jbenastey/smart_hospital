@@ -14,7 +14,7 @@ class AuthController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$model = array('User');
+		$model = array('User','Model');
 		$this->load->model($model);
 	}
 
@@ -70,5 +70,29 @@ class AuthController extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		redirect(base_url('login'));
+	}
+
+	public function gantiPassword()
+	{
+		if (isset($_POST['simpan'])){
+			$id = $this->session->userdata('session_id');
+			$password = $this->input->post('password');
+			$konfrmPassword = $this->input->post('konfrmPassword');
+			if ($password == $konfrmPassword){
+				$data = array(
+					'password' => md5($password)
+				);
+				$this->Model->update('user','id_user',$id, $data);
+				$this->session->set_flashdata('alert', 'update');
+				redirect('ganti-password');
+			} else {
+				$this->session->set_flashdata('alert', 'konfirmasi');
+				redirect('ganti-password');
+			}
+		} else {
+			$this->load->view('templates/header');
+			$this->load->view('login/ganti-password');
+			$this->load->view('templates/footer');
+		}
 	}
 }
