@@ -51,10 +51,7 @@
 		<ul class="navbar-nav ml-auto">
 
 			<!-- Notifications Dropdown Menu -->
-			<li class="nav-item">
-				<a onclick=" return confirm ('Apakah anda ingin keluar')" class="btn btn-danger btn-sm"
-				   href="<?php echo base_url('logout') ?>"><i class="fa fa-sign-out"></i> Keluar</a>
-			</li>
+
 		</ul>
 	</nav>
 	<!-- /.navbar -->
@@ -105,7 +102,7 @@
 					?>
 					<li class="nav-item has-treeview">
 						<a href="#" class="nav-link">
-							<i class="nav-icon fa fa-pie-chart"></i>
+							<i class="nav-icon fa fa-database"></i>
 							<p>
 								Data Master
 								<i class="right fa fa-angle-left"></i>
@@ -140,7 +137,7 @@
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('prediksi') ?>" class="nav-link">
-							<i class="nav-icon fa fa-file-o"></i>
+							<i class="nav-icon fa fa-line-chart"></i>
 							<p>
 								Prediksi
 								<span class="right badge badge-danger"></span>
@@ -161,6 +158,15 @@
 							<i class="nav-icon fa fa-lock"></i>
 							<p>
 								Ganti Password
+								<span class="right badge badge-danger"></span>
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url('logout') ?>" class="nav-link" onclick=" return confirm ('Apakah anda ingin keluar')">
+							<i class="nav-icon fa fa-sign-out"></i>
+							<p>
+								Keluar
 								<span class="right badge badge-danger"></span>
 							</p>
 						</a>
