@@ -22,10 +22,9 @@
 	<!-- /.card-header -->
 	<div class="card-body">
 		<table id="example1" class="table table-bordered table-striped">
-			<button class="btn btn-primary btn-sm"
-					style="float: right; margin-left: 5px" data-toggle="modal"
-					data-target="#myModal"><i class="fa fa-plus-circle"></i> Tambah data poliklinik
-			</button>
+			<a href="<?= base_url('poli/create') ?>" class="btn btn-primary btn-sm"
+					style="float: right; margin-left: 5px" ><i class="fa fa-plus-circle"></i> Tambah data poliklinik
+			</a>
 			<thead>
 			<tr>
 				<th>No</th>

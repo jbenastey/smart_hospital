@@ -35,6 +35,10 @@ class PoliController extends CI_Controller{
 			$this->Model->insert('poli',$data);
 			$this->session->set_flashdata('alert', 'insert');
 			redirect('poli');
+		} else {
+			$this->load->view('templates/header');
+			$this->load->view('poli/create');
+			$this->load->view('templates/footer');
 		}
 	}
 
