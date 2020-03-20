@@ -11,7 +11,7 @@
             <!-- small box -->
             <div class="small-box bg-info-gradient">
                 <div class="inner">
-                    <h3><?= $this->db->count_all_results('user')?></h3>
+                    <h3><?= $this->db->count_all_results('user')-1?></h3>
                     <p>Staff</p>
                 </div>
                 <div class="icon">

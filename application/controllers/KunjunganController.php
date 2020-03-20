@@ -71,8 +71,8 @@ class KunjunganController extends CI_Controller
 		$data['poli'] = $this->Model->get('poli','id_poli');
 		if (isset($_POST['update'])) {
 			$dataKunjungan = array(
-				'id_poli' => $this->input->post('poli'),
-				'bulan' => $this->input->post('bulan'),
+//				'id_poli' => $this->input->post('poli'),
+//				'bulan' => $this->input->post('bulan'),
 				'jumlah_kunjungan' => $this->input->post('jumlah'),
 			);
 			$this->Model->update('kunjungan','id_kunjungan',$id, $dataKunjungan);
