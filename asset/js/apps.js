@@ -3,6 +3,8 @@ $(document).ready(function () {
 
     var local = window.location.origin + '/sbk/';
 
+	$('#double-scroll').doubleScroll();
+
     $('#nama').change(function () {
         var id = $(this).val();
         var getUrl = local + 'laporan/ajaxSiswa/' + id;

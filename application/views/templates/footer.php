@@ -55,6 +55,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>asset/dist/js/demo.js"></script>
 <script src="<?= base_url() ?>asset/dist/js/select2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>asset/js/jquery.doubleScroll.js"></script>
+
 <script src="<?= base_url() ?>asset/js/apps.js"></script>
 <!-- 
 <script src="<?= base_url() ?>asset/plugins/datatables/jquery.dataTables.min.js"></script>
