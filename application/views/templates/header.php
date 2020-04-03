@@ -126,14 +126,28 @@
 					<?php
 					endif
 					?>
-					<li class="nav-item">
-						<a href="<?= base_url('kunjungan') ?>"  class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
+					<li class="nav-item has-treeview">
+						<a href="#" class="nav-link">
 							<i class="nav-icon fa fa-address-book"></i>
 							<p>
 								Kunjungan
-								<span class="right badge badge-danger"></span>
+								<i class="right fa fa-angle-left"></i>
 							</p>
 						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="<?= base_url('staff') ?>" class="nav-link">
+									<i class="fa fa-circle-o nav-icon"></i>
+									<p>Data Kunjungan</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
+									<i class="fa fa-circle-o nav-icon"></i>
+									<p>Laporan</p>
+								</a>
+							</li>
+						</ul>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('prediksi') ?>" class="nav-link">

@@ -18,7 +18,7 @@ class KunjunganController extends CI_Controller
 		if (isset($_POST['lihat'])) {
 			$tahun = $this->input->post('tahun');
 
-			redirect('kunjungan/view/'.$tahun);
+			redirect('kunjungan/laporan/'.$tahun);
 		}
 		$this->load->view('templates/header');
 		$this->load->view('kunjungan/tahun');
@@ -214,7 +214,7 @@ class KunjunganController extends CI_Controller
 		}
 
 		$this->load->view('templates/header');
-		$this->load->view('kunjungan/laporan',$data);
+		$this->load->view('kunjungan/tahun',$data);
 		$this->load->view('templates/footer');
 	}
 }
