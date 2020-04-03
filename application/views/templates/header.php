@@ -126,7 +126,7 @@
 					<?php
 					endif
 					?>
-					<li class="nav-item has-treeview">
+					<li class="nav-item has-treeview <?php if(strpos($this->uri->segment(1),'kunjungan') !== false) echo 'menu-open'?>">
 						<a href="#" class="nav-link">
 							<i class="nav-icon fa fa-address-book"></i>
 							<p>
@@ -142,7 +142,7 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(2) == 'laporan') echo 'active'?>">
+								<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
 									<i class="fa fa-circle-o nav-icon"></i>
 									<p>Laporan</p>
 								</a>
