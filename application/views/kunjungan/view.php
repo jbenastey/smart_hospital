@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="card-header">
-		<h3 class="card-title">Data Kunjungan <?= $tahun ?></h3>
+		<h3 class="card-title">Data Kunjungan Poliklinik <?= $poli['nama_poli'] ?> Tahun <?= $tahun ?> </h3>
 		<?php if ($this->session->flashdata('alert') == 'insert'): ?>
 			<div class="alert alert-success alert-dismissible" id="feedback">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -30,20 +30,16 @@
 			<?php
 			if($this->session->userdata('session_level') == 'Staff RM'):
 			?>
-				<a href="<?= base_url('kunjungan/create/'.$tahun) ?>" class="btn btn-primary btn-sm"
+				<a href="<?= base_url('kunjungan/create/'.$poli['id_poli'].'/'.$tahun) ?>" class="btn btn-primary btn-sm"
 				   style="float: right; margin-left: 5px" ><i class="fa fa-plus-circle"></i> Tambah data kunjungan
 				</a>
 			<?php
 			endif
 			?>
-			<a href="<?= base_url('kunjungan/laporan/'.$tahun) ?>" class="btn btn-success btn-sm"
-			   style="float: right;" ><i class="fa fa-table"></i> Lihat Laporan
-			</a>
 			<thead>
 			<tr>
 				<th>No</th>
 				<th>Bulan</th>
-				<th>Poliklinik</th>
 				<th>Jumlah</th>
 				<th class="text-center" width="17%"><i class="fa fa-gear"></i></th>
 			</tr>
@@ -56,7 +52,6 @@
 			<tr>
 				<td><?= $nomor ?></td>
 				<td><?= $value['bulan'] ?></td>
-				<td><?= $value['nama_poli'] ?></td>
 				<td><?= $value['jumlah_kunjungan'] ?></td>
 				<td>
 					<a href="<?= base_url('kunjungan/update/') . $value['id_kunjungan'] ?>"

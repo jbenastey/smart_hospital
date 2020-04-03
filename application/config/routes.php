@@ -64,8 +64,9 @@ $route['staff/update/(:any)'] = 'StaffController/update/$1';
 $route['staff/hapus/(:any)'] = 'StaffController/delete/$1';
 
 $route['kunjungan'] = 'KunjunganController/index';
-$route['kunjungan/view/(:any)'] = 'KunjunganController/view/$1';
-$route['kunjungan/create/(:any)'] = 'KunjunganController/create/$1';
+$route['data-kunjungan'] = 'KunjunganController/data_kunjungan';
+$route['data-kunjungan/(:any)/(:any)'] = 'KunjunganController/view/$1/$2';
+$route['kunjungan/create/(:any)/(:any)'] = 'KunjunganController/create/$1/$2';
 $route['kunjungan/update/(:any)'] = 'KunjunganController/update/$1';
 $route['kunjungan/hapus/(:any)'] = 'KunjunganController/delete/$1';
 $route['kunjungan/laporan/(:any)'] = 'KunjunganController/laporan/$1';

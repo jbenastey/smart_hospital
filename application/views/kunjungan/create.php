@@ -3,7 +3,7 @@
 		<h3 class="card-title">Tambah Data Kunjungan Tahun <?= $tahun ?></h3>
 	</div>
 	<div class="card-body">
-		<?= form_open('kunjungan/create/'.$tahun, array('class' => 'form forms-sample', 'id' => 'formValidation')) ?>
+		<?= form_open('kunjungan/create/'.$poli['id_poli'].'/'.$tahun, array('class' => 'form forms-sample', 'id' => 'formValidation')) ?>
 		<div class="form-group">
 			<label for="exampleInputEmail1">Bulan</label>
 			<select name="bulan" class="form-control" id="exampleInputEmail1">
@@ -19,18 +19,6 @@
 				<option>Oktober</option>
 				<option>November</option>
 				<option>Desember</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="exampleInputEmail1">Poliklinik</label>
-			<select name="poli" class="form-control" id="exampleInputEmail1">
-				<?php
-				foreach($poli as $key=>$value):
-				?>
-					<option value="<?= $value['id_poli'] ?>"><?= $value['nama_poli'] ?></option>
-				<?php
-				endforeach;
-				?>
 			</select>
 		</div>
 		<div class="form-group">

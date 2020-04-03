@@ -54,6 +54,16 @@ class Model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function getKunjunganPoli($poli,$tahun){
+		$this->db->from('kunjungan');
+		$this->db->join('poli','poli.id_poli = kunjungan.id_poli');
+		$this->db->where('poli.id_poli',$poli);
+		$this->db->where('tahun',$tahun);
+		$this->db->order_by('id_kunjungan','DESC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	public function cekKunjunganBulan($tahun,$bulan){
 		$this->db->from('kunjungan');
 		$this->db->join('poli','poli.id_poli = kunjungan.id_poli');

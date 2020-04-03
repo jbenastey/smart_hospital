@@ -136,13 +136,13 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<a href="<?= base_url('staff') ?>" class="nav-link">
+								<a href="<?= base_url('data-kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'data-kunjungan') echo 'active'?>">
 									<i class="fa fa-circle-o nav-icon"></i>
 									<p>Data Kunjungan</p>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
+								<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(2) == 'laporan') echo 'active'?>">
 									<i class="fa fa-circle-o nav-icon"></i>
 									<p>Laporan</p>
 								</a>

@@ -25,23 +25,40 @@ class KunjunganController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function view($tahun)
+	public function data_kunjungan()
+	{
+		if (isset($_POST['lihat'])) {
+			$poli = $this->input->post('poli');
+			$tahun = $this->input->post('tahun');
+
+			redirect('data-kunjungan/'.$poli.'/'.$tahun);
+		}
+		$data = array(
+			'poli' => $this->Model->get('poli')
+		);
+		$this->load->view('templates/header');
+		$this->load->view('kunjungan/poli',$data);
+		$this->load->view('templates/footer');
+	}
+
+	public function view($poli,$tahun)
 	{
 		$data = array(
+			'poli' => $this->Model->first('poli','id_poli',$poli),
 			'tahun' => $tahun,
-			'kunjungan' => $this->Model->getKunjungan($tahun)
+			'kunjungan' => $this->Model->getKunjunganPoli($poli,$tahun)
 		);
 		$this->load->view('templates/header');
 		$this->load->view('kunjungan/view',$data);
 		$this->load->view('templates/footer');
 	}
 
-	public function create($tahun)
+	public function create($poli,$tahun)
 	{
 		if (isset($_POST['simpan'])){
 			$data = array(
 				'id_user' => $this->session->userdata('session_id'),
-				'id_poli' => $this->input->post('poli'),
+				'id_poli' => $poli,
 				'tahun' => $tahun,
 				'bulan' => $this->input->post('bulan'),
 				'jumlah_kunjungan' => $this->input->post('jumlah'),
@@ -50,15 +67,15 @@ class KunjunganController extends CI_Controller
 			if (count($cekPoli) == 0){
 				$this->Model->insert('kunjungan',$data);
 				$this->session->set_flashdata('alert', 'insert');
-				redirect('kunjungan/view/'.$tahun);
+				redirect('data-kunjungan/'.$poli.'/'.$tahun);
 			}else{
 				$this->session->set_flashdata('alert', 'month exist');
-				redirect('kunjungan/view/'.$tahun);
+				redirect('data-kunjungan/'.$poli.'/'.$tahun);
 			}
 		}
 		$data = array(
 			'tahun' => $tahun,
-			'poli' => $this->Model->get('poli','id_poli'),
+			'poli' => $poli,
 		);
 
 		$this->load->view('templates/header');
