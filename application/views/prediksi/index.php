@@ -4,7 +4,7 @@
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
-		<table id="example1" class="table table-bordered table-striped">
+		<table id="hasil-table" class="table table-bordered table-striped">
 			<button id="prediksi" class="btn btn-primary float-right btn-sm">Hitung</button>
 			<thead>
 			<tr>
@@ -15,6 +15,8 @@
 				<th>Saran</th>
 			</tr>
 			</thead>
+			<tbody>
+			</tbody>
 		</table>
 	</div>
 	<!-- /.card-body -->

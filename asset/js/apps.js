@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $('.js-example-basic-single').select2();
+	$('.js-example-basic-single').select2();
 
-    var local = window.location.origin + '/smart_hospital/';
+	var local = window.location.origin + '/smart_hospital/';
 
 	$('#double-scroll').doubleScroll();
 
@@ -23,7 +23,7 @@ $(document).ready(function () {
 				var b = [];
 				var a = [];
 				var Y = [];
-				for (var i = 0; i < response.length ; i++) {
+				for (var i = 0; i < response.length; i++) {
 					nama.push(response[i].nama_poli);
 					Ex.push(0);
 					Ey.push(0);
@@ -32,7 +32,7 @@ $(document).ready(function () {
 					Ey2.push(0);
 					n.push(0);
 					for (var j = 0; j < response[i].praproses.length; j++) {
-						var x = j+1;
+						var x = j + 1;
 						var y = parseInt(response[i].praproses[j]);
 						var xy = x * y;
 						var x2 = x * x;
@@ -45,9 +45,19 @@ $(document).ready(function () {
 						Ey2[i] += y2;
 						n[i] = x;
 					}
-					b.push(cariB(Ex[i],Ey[i],Exy[i],Ex2[i],Ey2[i],n[i]));
-					a.push(cariA(Ex[i],Ey[i],b[i],n[i]));
-					Y.push(cariY(a[i],b[i],(n[i]+1)));
+					b.push(cariB(Ex[i], Ey[i], Exy[i], Ex2[i], Ey2[i], n[i]));
+					a.push(cariA(Ex[i], Ey[i], b[i], n[i]));
+					Y.push(cariY(a[i], b[i], (n[i] + 1)));
+
+					$('#hasil-table > tbody:last-child').append(
+						'<tr>' +
+						'<td>'+(i+1)+'</td>' +
+						'<td>'+response[i].nama_poli+'</td>' +
+						'<td>'+Math.round(Y[i])+'</td>' +
+						'<td>1</td>' +
+						'<td>'+saran(Y[i])+'</td>' +
+						'</tr>'
+					);
 				}
 				console.log(Y);
 			}
@@ -55,18 +65,30 @@ $(document).ready(function () {
 	})
 });
 
-function cariB(Ex,Ey,Exy,Ex2,Ey2,n) {
-	var hasil = ((n*Exy) - (Ex*Ey)) / ((n*Ex2) - (Ex*Ex));
+function cariB(Ex, Ey, Exy, Ex2, Ey2, n) {
+	var hasil = ((n * Exy) - (Ex * Ey)) / ((n * Ex2) - (Ex * Ex));
 	return hasil;
 }
 
-function cariA(Ex,Ey,b,n) {
-	var hasil = (Ey - (b*Ex)) / n;
+function cariA(Ex, Ey, b, n) {
+	var hasil = (Ey - (b * Ex)) / n;
 	return hasil
 }
 
-function cariY(a,b,n) {
+function cariY(a, b, n) {
 	var hasil = a + (b * n);
 	return hasil
+}
+
+function saran(y) {
+	var hasil = '';
+	if (y <= 20){
+		hasil = 'Tutup';
+	} else if (y > 20 && y <= 700){
+		hasil = 'Buka';
+	} else {
+		hasil = 'Penambahan SDM dan Sarana'
+	}
+	return hasil;
 }
 
