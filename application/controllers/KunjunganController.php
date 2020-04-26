@@ -94,7 +94,7 @@ class KunjunganController extends CI_Controller
 			);
 			$this->Model->update('kunjungan','id_kunjungan',$id, $dataKunjungan);
 			$this->session->set_flashdata('alert', 'update');
-			redirect('kunjungan/view/'.$data['kunjungan']['tahun']);
+			redirect('data-kunjungan/'.$data['kunjungan']['id_poli'].'/'.$data['kunjungan']['tahun']);
 		} else {
 			$this->load->view('templates/header');
 			$this->load->view('kunjungan/update', $data);
@@ -106,7 +106,7 @@ class KunjunganController extends CI_Controller
 		$data = $this->Model->first('kunjungan','id_kunjungan',$id);
 		$this->Model->delete('kunjungan','id_kunjungan',$id);
 		$this->session->set_flashdata('alert', 'delete');
-		redirect('kunjungan/view/'.$data['tahun']);
+		redirect('data-kunjungan/'.$data['id_poli'].'/'.$data['tahun']);
 	}
 
 	public function laporan($tahun){
