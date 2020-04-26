@@ -15,10 +15,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?= base_url() ?>asset/plugins/datatables/dataTables.bootstrap4.min.css">
-	<!-- iCheck -->
-	<link rel="stylesheet" href="<?= base_url() ?>asset/plugins/iCheck/flat/blue.css'">
-	<!-- Morris chart -->
-	<link rel="stylesheet" href="<?= base_url() ?>asset/plugins/morris/morris.css">
 	<!-- jvectormap -->
 	<link rel="stylesheet" href="<?= base_url() ?>asset/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
 	<!-- Date Picker -->
@@ -150,7 +146,7 @@
 						</ul>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url('prediksi') ?>" class="nav-link">
+						<a href="<?= base_url('prediksi') ?>" class="nav-link <?php if($this->uri->segment(1) == 'prediksi') echo 'active'?>">
 							<i class="nav-icon fa fa-line-chart"></i>
 							<p>
 								Prediksi

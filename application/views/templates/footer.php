@@ -29,7 +29,6 @@
 <script src="<?= base_url() ?>asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Morris.js charts -->
 <script src="<?= base_url() ?>asset/dist/js/raphael-min.js"></script>
-<script src="<?= base_url() ?>asset/plugins/morris/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="<?= base_url() ?>asset/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -51,7 +50,7 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url() ?>asset/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?= base_url() ?>asset/dist/js/pages/dashboard.js"></script>
+<!--<script src="--><?//= base_url() ?><!--asset/dist/js/pages/dashboard.js"></script>-->
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>asset/dist/js/demo.js"></script>
 <script src="<?= base_url() ?>asset/dist/js/select2.min.js"></script>

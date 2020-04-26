@@ -71,6 +71,8 @@ $route['kunjungan/update/(:any)'] = 'KunjunganController/update/$1';
 $route['kunjungan/hapus/(:any)'] = 'KunjunganController/delete/$1';
 $route['kunjungan/laporan/(:any)'] = 'KunjunganController/laporan/$1';
 
+$route['prediksi'] = 'PrediksiController/index';
+$route['prediksi/praproses'] = 'PrediksiController/praproses';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
