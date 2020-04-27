@@ -53,14 +53,12 @@ $(document).ready(function () {
 						'<tr>' +
 						'<td>'+(i+1)+'</td>' +
 						'<td>'+response[i].nama_poli+'</td>' +
-						'<td>'+Math.round(Y[i])+'</td>' +
+						'<td>'+cekMinus(Math.round(Y[i]))+'</td>' +
 						'<td>'+keterangan(y,Y[i])+'</td>' +
 						'<td>'+saran(Y[i])+'</td>' +
 						'</tr>'
 					);
-					// console.log(y);
 				}
-				console.log(Y);
 			}
 		})
 	})
@@ -101,6 +99,16 @@ function keterangan(y,Y) {
 		hasil = 'Menurun'
 	} else {
 		hasil = 'Stabil'
+	}
+	return hasil;
+}
+
+function cekMinus(Y) {
+	var hasil = 0;
+	if (Y < 0){
+		hasil = 0;
+	} else {
+		hasil = Y;
 	}
 	return hasil;
 }
