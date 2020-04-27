@@ -54,10 +54,11 @@ $(document).ready(function () {
 						'<td>'+(i+1)+'</td>' +
 						'<td>'+response[i].nama_poli+'</td>' +
 						'<td>'+Math.round(Y[i])+'</td>' +
-						'<td>1</td>' +
+						'<td>'+keterangan(y,Y[i])+'</td>' +
 						'<td>'+saran(Y[i])+'</td>' +
 						'</tr>'
 					);
+					// console.log(y);
 				}
 				console.log(Y);
 			}
@@ -88,6 +89,18 @@ function saran(y) {
 		hasil = 'Buka';
 	} else {
 		hasil = 'Penambahan SDM dan Sarana'
+	}
+	return hasil;
+}
+
+function keterangan(y,Y) {
+	var hasil = '';
+	if (y < Y){
+		hasil = 'Meningkat';
+	} else if (y > Y){
+		hasil = 'Menurun'
+	} else {
+		hasil = 'Stabil'
 	}
 	return hasil;
 }
