@@ -5,7 +5,6 @@
 	<!-- /.card-header -->
 	<div class="card-body">
 		<table id="hasil-table" class="table table-bordered table-striped">
-			<button id="prediksi" class="btn btn-primary float-right btn-sm">Hitung</button>
 			<thead>
 			<tr>
 				<th>No</th>
