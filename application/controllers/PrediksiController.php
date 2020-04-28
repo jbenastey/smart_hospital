@@ -14,8 +14,16 @@ class PrediksiController extends CI_Controller
 	}
 
 	public function index(){
+		$dataKunjungan = $this->Model->get('kunjungan');
+		$tahun = array();
+		foreach ($dataKunjungan as $value) {
+			array_push($tahun,$value['tahun']);
+		}
+		$data = array(
+			'tahun' => 	max($tahun)+1
+		);
 		$this->load->view('templates/header');
-		$this->load->view('prediksi/index');
+		$this->load->view('prediksi/index', $data);
 		$this->load->view('templates/footer');
 	}
 

@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="card-header">
-		<h3 class="card-title">Hasil Prediksi Jumlah Kunjungan Pasien Rawat Jalan</h3>
+		<h3 class="card-title">Hasil Prediksi Jumlah Kunjungan Pasien Rawat Jalan Tahun <?= $tahun ?></h3>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
