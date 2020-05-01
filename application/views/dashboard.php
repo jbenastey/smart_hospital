@@ -40,7 +40,7 @@
             <!-- small box -->
             <div class="small-box bg-warning-gradient">
                 <div class="inner">
-                    <h3><?= $this->db->count_all_results('kunjungan')?></h3>
+                    <h3><?= $prediksi?></h3>
 
                     <p>Prediksi</p>
                 </div>
@@ -56,14 +56,14 @@
             <!-- small box -->
             <div class="small-box bg-success-gradient">
                 <div class="inner">
-                    <h3>9</h3>
+                    <h3><?= $tahun ?></h3>
 
                     <p>Laporan</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-file-o"></i>
                 </div>
-                <a href="<?=base_url('laporan')?>" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?=base_url('kunjungan')?>" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

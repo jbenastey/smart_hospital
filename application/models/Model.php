@@ -95,4 +95,12 @@ class Model extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+
+	public function tahun(){
+		$this->db->distinct();
+		$this->db->select('tahun');
+		$this->db->from('kunjungan');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
