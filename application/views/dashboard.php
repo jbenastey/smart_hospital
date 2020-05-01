@@ -45,7 +45,7 @@
                     <p>Prediksi</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-address-book"></i>
+                    <i class="fa fa-line-chart"></i>
                 </div>
                 <a href="<?=base_url('prediksi')?>" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
             </div>

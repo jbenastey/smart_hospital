@@ -22,6 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
 	<div class="login-logo">
+		<img src="<?= base_url('asset/image/smart-hospital.jpeg') ?>" alt="" width="40%"><br>
 		<a href="<?= base_url() ?>"><b>Smart Hospital </b></a>
 	</div>
 	<!-- /.login-logo -->

@@ -137,12 +137,6 @@
 									<p>Data Kunjungan</p>
 								</a>
 							</li>
-							<li class="nav-item">
-								<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
-									<i class="fa fa-circle-o nav-icon"></i>
-									<p>Laporan</p>
-								</a>
-							</li>
 						</ul>
 					</li>
 					<li class="nav-item">
@@ -155,7 +149,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url('laporan') ?>" class="nav-link">
+						<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
 							<i class="nav-icon fa fa-files-o"></i>
 							<p>
 								Laporan
