@@ -85,6 +85,8 @@ $(document).ready(function () {
 			var b = [];
 			var a = [];
 			var Y = [];
+			var ket = [];
+			var sar = [];
 			for (var i = 0; i < response.length; i++) {
 				nama.push(response[i].nama_poli);
 				Ex.push(0);
@@ -110,6 +112,8 @@ $(document).ready(function () {
 				b.push(cariB(Ex[i], Ey[i], Exy[i], Ex2[i], Ey2[i], n[i]));
 				a.push(cariA(Ex[i], Ey[i], b[i], n[i]));
 				Y.push(cariY(a[i], b[i], (n[i] + 1)));
+				ket.push(keterangan(y, Y[i]));
+				sar.push(saran(Y[i]));
 
 				$('#hasil-table > tbody:last-child').append(
 					'<tr>' +
@@ -121,6 +125,10 @@ $(document).ready(function () {
 					'</tr>'
 				);
 			}
+			$('#nama').val(JSON.stringify(nama));
+			$('#hasil').val(JSON.stringify(Y));
+			$('#ket').val(JSON.stringify(ket));
+			$('#saran').val(JSON.stringify(sar));
 		}
 	})
 });

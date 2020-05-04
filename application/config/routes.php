@@ -74,6 +74,7 @@ $route['kunjungan/cetak/(:any)'] = 'KunjunganController/cetak/$1';
 
 $route['prediksi'] = 'PrediksiController/index';
 $route['prediksi/praproses'] = 'PrediksiController/praproses';
+$route['prediksi/cetak'] = 'PrediksiController/cetak';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

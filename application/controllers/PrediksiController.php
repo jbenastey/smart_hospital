@@ -1,5 +1,6 @@
 <?php
 
+require 'vendor/autoload.php';
 
 class PrediksiController extends CI_Controller
 {
@@ -7,6 +8,7 @@ class PrediksiController extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Model');
+		$this->load->helper('tgl_indo_helper');
 
 		if (!$this->session->has_userdata('session_username')) {
 			redirect(site_url('login'));
@@ -52,4 +54,87 @@ class PrediksiController extends CI_Controller
 		echo json_encode($poli);
 	}
 
+	public function cetak(){
+		$nama = json_decode($this->input->post('nama'));
+		$hasil = json_decode($this->input->post('hasil'));
+		$ket = json_decode($this->input->post('ket'));
+		$saran = json_decode($this->input->post('saran'));
+
+		$prediksi = array();
+
+		foreach ($nama as $key=>$value) {
+			array_push($prediksi,array(
+				'nama' => $value,
+				'hasil' => $this->cekMinus($hasil[$key]),
+				'ket' => $ket[$key],
+				'saran' => $saran[$key],
+			));
+		}
+
+		$dompdf = new Dompdf\Dompdf();
+
+		$path = FCPATH.'asset/image/bengkalis.jpeg';
+		$type = pathinfo($path, PATHINFO_EXTENSION);
+		$foto = file_get_contents($path);
+		$base64 = 'data:image/' . $type . ';base64,' . base64_encode($foto);
+
+		$html = '';
+		$html .= '
+			<div>
+				<img src="'.$base64.'" width="100" height="140" style="float:left; margin-right: -110px"/>
+				<h3 style="text-align: center; margin-bottom: -10px">PEMERINTAH KABUPATEN BENGKALIS</h3>
+				<h3 style="text-align: center; margin-bottom: -10px">RUMAH SAKIT UMUM DAERAH</h3>
+				<h3 style="text-align: center; margin-bottom: -10px">KECAMATAN MANDAU</h3>
+				<h4 style="text-align: center; margin-bottom: -10px">Jl. Stadion No.10 Telp. (0765) 696380 Fax. (0765) 696348</h4>
+				<h4 style="text-align: center">D U R I - 28884 email. rsud.mandau@bengkaliskab.go.id</h4>
+				<hr>
+			</div>
+			<div>
+				<h4>Tanggal Prediksi : '.date_indo(date('Y-m-d')).'</h4>
+				<table cellspacing="0" border="1" width="100%" style="text-align: center">
+				<thead class="text-center">
+					<tr>
+						<th>No</th>
+						<th>Nama Poli</th>
+						<th>Hasil Prediksi</th>
+						<th>Keterangan</th>
+						<th>Saran</th>
+					</tr>
+					</thead>
+					<tbody>';
+					foreach ($prediksi as $key=>$value) {
+					$html.='<tr>
+						<td>'.($key+1).'</td>
+						<td>'.$value['nama'].'</td>
+						<td>'.round($value['hasil']).'</td>
+						<td>'.$value['ket'].'</td>
+						<td>'.$value['saran'].'</td>
+						</tr>';
+					}
+					$html.='</tbody>
+				</table>
+			</div>
+			';
+
+		$dompdf->loadHtml($html);
+
+// (Optional) Setup the paper size and orientation
+		$dompdf->setPaper('A4', 'potrait');
+
+// Render the HTML as PDF
+		$dompdf->render();
+
+// Output the generated PDF to Browser
+		$dompdf->stream('Hasil Prediksi Jumlah Kunjungan Pasien Rawat Jalan' ,array('Attachment'=>0));
+	}
+
+	function cekMinus($Y) {
+		$hasil = 0;
+		if ($Y < 0) {
+			$hasil = 0;
+		} else {
+			$hasil = $Y;
+		}
+		return $hasil;
+	}
 }
