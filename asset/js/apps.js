@@ -20,6 +20,54 @@ $(document).ready(function () {
 		})
 	})
 
+	$('.hapus-staff').click(function () {
+		var id = $(this).val();
+		Swal.fire({
+			title: 'Hapus Data ?',
+			type: 'warning',
+			confirmButtonText: 'Ok',
+			showCancelButton: true,
+		}).then((result) => {
+			if (result.value) {
+				window.location.href = window.location.origin +'/smart_hospital/staff/hapus/'+id
+			} else if(result.dismiss === Swal.DismissReason.cancel) {
+				swal("Dibatalkan", "Tidak jadi dihapus", "error");
+			}
+		})
+	})
+
+	$('.hapus-poli').click(function () {
+		var id = $(this).val();
+		Swal.fire({
+			title: 'Hapus Data ?',
+			type: 'warning',
+			confirmButtonText: 'Ok',
+			showCancelButton: true,
+		}).then((result) => {
+			if (result.value) {
+				window.location.href = window.location.origin +'/smart_hospital/poli/hapus/'+id
+			} else if(result.dismiss === Swal.DismissReason.cancel) {
+				swal("Dibatalkan", "Tidak jadi dihapus", "error");
+			}
+		})
+	})
+
+	$('.hapus-kunjungan').click(function () {
+		var id = $(this).val();
+		Swal.fire({
+			title: 'Hapus Data ?',
+			type: 'warning',
+			confirmButtonText: 'Ok',
+			showCancelButton: true,
+		}).then((result) => {
+			if (result.value) {
+				window.location.href = window.location.origin +'/smart_hospital/kunjungan/hapus/'+id
+			} else if(result.dismiss === Swal.DismissReason.cancel) {
+				swal("Dibatalkan", "Tidak jadi dihapus", "error");
+			}
+		})
+	})
+
 	$.ajax({
 		url: local + 'prediksi/praproses',
 		type: 'GET',

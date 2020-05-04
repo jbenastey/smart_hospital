@@ -56,11 +56,9 @@
 				<td>
 					<a href="<?= base_url('kunjungan/update/') . $value['id_kunjungan'] ?>"
 					   class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit &nbsp;&nbsp;</a>
-					<a
-						href="<?= base_url('kunjungan/hapus/') . $value['id_kunjungan'] ?>"
-						class="btn btn-outline-danger btn-sm"
-						onclick="return confirm('Apakah anda ingin menghapus')"><i class="fa fa-trash"></i>
-						Hapus</a>
+					<button type="button" value="<?= $value['id_kunjungan'] ?>"
+							class="btn btn-outline-danger btn-sm hapus-kunjungan"><i class="fa fa-trash"></i>
+						Hapus</button>
 				</td>
 			</tr>
 			<?php
