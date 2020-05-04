@@ -1,23 +1,6 @@
 <div class="card">
 	<div class="card-header">
 		<h3 class="card-title">Data Poliklinik</h3>
-		<?php if ($this->session->flashdata('alert') == 'insert'): ?>
-			<div class="alert alert-success alert-dismissible" id="feedback">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Data Berhasil disimpan
-			</div>
-		<?php elseif ($this->session->flashdata('alert') == 'update_pelanggaran'): ?>
-			<div class="alert alert-success alert-dismissible" id="feedback">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Data Berhasil diupdate
-			</div>
-		<?php elseif ($this->session->flashdata('alert') == 'delete'): ?>
-			<div class="alert alert-danger alert-dismissible" id="feedback">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Data Berhasil dihapus
-			</div>
-		<?php
-		endif; ?>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">

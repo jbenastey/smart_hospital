@@ -71,15 +71,49 @@
     $('#example1').DataTable();
 } );
 </script>
-<script>
-	function logout(){
+
+<?php if ($this->session->flashdata('alert') == 'insert'): ?>
+	<script>
 		Swal.fire({
-			title: 'Anda yakin ingin keluar ?',
+			title: 'Data Berhasil Disimpan',
+			type: 'success',
+			confirmButtonText: 'Ok',
+		})
+	</script>
+<?php elseif ($this->session->flashdata('alert') == 'month exist'): ?>
+	<script>
+		Swal.fire({
+			title: 'Bulan Sudah Ada',
 			type: 'warning',
 			confirmButtonText: 'Ok',
-			showCancelButton: true
 		})
-	}
-</script>
+	</script>
+<?php elseif ($this->session->flashdata('alert') == 'delete'): ?>
+	<script>
+		Swal.fire({
+			title: 'Data Berhasil Dihapus',
+			type: 'success',
+			confirmButtonText: 'Ok',
+		})
+	</script>
+<?php elseif ($this->session->flashdata('alert') == 'update_pelanggaran'): ?>
+	<script>
+		Swal.fire({
+			title: 'Data Berhasil Diubah',
+			type: 'success',
+			confirmButtonText: 'Ok',
+		})
+	</script>
+<?php elseif ($this->session->flashdata('alert') == 'update'): ?>
+	<script>
+		Swal.fire({
+			title: 'Data Berhasil Diubah',
+			type: 'success',
+			confirmButtonText: 'Ok',
+		})
+	</script>
+<?php
+endif; ?>
+
 </body>
 </html>

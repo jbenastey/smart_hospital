@@ -1,28 +1,6 @@
 <div class="card">
 	<div class="card-header">
 		<h3 class="card-title">Data Kunjungan Poliklinik <?= $poli['nama_poli'] ?> Tahun <?= $tahun ?> </h3>
-		<?php if ($this->session->flashdata('alert') == 'insert'): ?>
-			<div class="alert alert-success alert-dismissible" id="feedback">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Data Berhasil disimpan
-			</div>
-		<?php elseif ($this->session->flashdata('alert') == 'month exist'): ?>
-			<div class="alert alert-warning alert-dismissible" id="feedback">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Bulan Sudah Ada
-			</div>
-		<?php elseif ($this->session->flashdata('alert') == 'delete'): ?>
-			<div class="alert alert-danger alert-dismissible" id="feedback">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Data Berhasil dihapus
-			</div>
-		<?php elseif ($this->session->flashdata('alert') == 'update'): ?>
-			<div class="alert alert-success alert-dismissible" id="feedback">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				Data Berhasil diubah
-			</div>
-		<?php
-		endif; ?>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
