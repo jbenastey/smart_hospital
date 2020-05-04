@@ -32,7 +32,8 @@
 </div>
 <div class="card">
 	<div class="card-header">
-		<h3 class="card-title">Data Jumlah Kunjungan Pasien Rawat Jalan Tahun <?= $tahun ?></h3>
+		<h3 class="card-title float-left">Data Jumlah Kunjungan Pasien Rawat Jalan Tahun <?= $tahun ?></h3>
+		<a href="<?= base_url('kunjungan/cetak/'.$tahun) ?>" target="_blank" class="btn btn-sm btn-danger float-right"><i class="fa fa-print"></i></a>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">

@@ -70,6 +70,7 @@ $route['kunjungan/create/(:any)/(:any)'] = 'KunjunganController/create/$1/$2';
 $route['kunjungan/update/(:any)'] = 'KunjunganController/update/$1';
 $route['kunjungan/hapus/(:any)'] = 'KunjunganController/delete/$1';
 $route['kunjungan/laporan/(:any)'] = 'KunjunganController/laporan/$1';
+$route['kunjungan/cetak/(:any)'] = 'KunjunganController/cetak/$1';
 
 $route['prediksi'] = 'PrediksiController/index';
 $route['prediksi/praproses'] = 'PrediksiController/praproses';
