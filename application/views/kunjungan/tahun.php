@@ -32,7 +32,7 @@
 </div>
 <div class="card">
 	<div class="card-header">
-		<h3 class="card-title">Data Kunjungan <?= $tahun ?></h3>
+		<h3 class="card-title">Data Jumlah Kunjungan Pasien Rawat Jalan Tahun <?= $tahun ?></h3>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">

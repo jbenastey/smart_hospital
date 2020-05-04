@@ -5,6 +5,21 @@ $(document).ready(function () {
 
 	$('#double-scroll').doubleScroll();
 
+	$('.logout').click(function () {
+		Swal.fire({
+			title: 'Anda yakin ingin keluar ?',
+			type: 'warning',
+			confirmButtonText: 'Ok',
+			showCancelButton: true,
+		}).then((result) => {
+			if (result.value) {
+				window.location.href =  window.location.origin +'/smart_hospital/logout'
+			} else if(result.dismiss === Swal.DismissReason.cancel) {
+				swal("Dibatalkan", "Tidak jadi logout", "error");
+			}
+		})
+	})
+
 	$.ajax({
 		url: local + 'prediksi/praproses',
 		type: 'GET',

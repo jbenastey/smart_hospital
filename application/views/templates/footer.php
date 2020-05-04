@@ -64,11 +64,22 @@
 <script type="text/javascript" src="<?php echo base_url() ?>asset/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>asset/js/dataTables.bootstrap4.min.js"></script>
 
+<script src="<?=base_url()?>asset/dist/js/sweetalert2.all.js"></script>
+
 <script>
   $(document).ready(function() {
     $('#example1').DataTable();
 } );
 </script>
-
+<script>
+	function logout(){
+		Swal.fire({
+			title: 'Anda yakin ingin keluar ?',
+			type: 'warning',
+			confirmButtonText: 'Ok',
+			showCancelButton: true
+		})
+	}
+</script>
 </body>
 </html>
