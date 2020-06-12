@@ -123,31 +123,37 @@
 					<?php
 					endif
 					?>
-					<li class="nav-item has-treeview <?php if(strpos($this->uri->segment(1),'kunjungan') !== false) echo 'menu-open'?>">
-						<a href="#" class="nav-link">
+					<li class="nav-item">
+						<a href="<?= base_url('data-kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'data-kunjungan') echo 'active'?>">
 							<i class="nav-icon fa fa-address-book"></i>
 							<p>
-								Kunjungan
+								Data Kunjungan
+								<span class="right badge badge-danger"></span>
+							</p>
+						</a>
+					</li>
+					<li class="nav-item has-treeview <?php if(strpos($this->uri->segment(1),'prediksi') !== false) echo 'menu-open'?>">
+						<a href="#" class="nav-link">
+							<i class="nav-icon fa fa-line-chart"></i>
+							<p>
+								Prediksi
 								<i class="right fa fa-angle-left"></i>
 							</p>
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<a href="<?= base_url('data-kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'data-kunjungan') echo 'active'?>">
+								<a href="<?= base_url('prediksi') ?>" class="nav-link <?php if($this->uri->segment(1) == 'prediksi') echo 'active'?>">
 									<i class="fa fa-circle-o nav-icon"></i>
-									<p>Data Kunjungan</p>
+									<p>Rangkuman</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?= base_url('prediksi-grafik') ?>" class="nav-link <?php if($this->uri->segment(1) == 'prediksi-grafik') echo 'active'?>">
+									<i class="fa fa-circle-o nav-icon"></i>
+									<p>Grafik</p>
 								</a>
 							</li>
 						</ul>
-					</li>
-					<li class="nav-item">
-						<a href="<?= base_url('prediksi') ?>" class="nav-link <?php if($this->uri->segment(1) == 'prediksi') echo 'active'?>">
-							<i class="nav-icon fa fa-line-chart"></i>
-							<p>
-								Prediksi
-								<span class="right badge badge-danger"></span>
-							</p>
-						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('kunjungan') ?>" class="nav-link <?php if($this->uri->segment(1) == 'kunjungan') echo 'active'?>">
