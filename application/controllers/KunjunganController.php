@@ -373,11 +373,11 @@ class KunjunganController extends CI_Controller
 				<h3 style="text-align: center; margin-bottom: -10px">KECAMATAN MANDAU</h3>
 				<h4 style="text-align: center; margin-bottom: -10px">Jl. Stadion No.10 Telp. (0765) 696380 Fax. (0765) 696348</h4>
 				<h4 style="text-align: center">D U R I - 28884 email. rsud.mandau@bengkaliskab.go.id</h4>
-				<hr>
+				<hr style="margin-bottom: -10px"">
 			</div>
 			<div>
 				<h4 style="text-align: center;">JUMLAH KUNJUNGAN RAWAT JALAN RSUD KEC. MANDAU TAHUN '.$tahun.'</h4>
-				<table cellspacing="0" border="1" width="100%" style="text-align: center">
+				<table cellspacing="0" border="1" width="100%" style="text-align: center;margin-bottom: -10px"">
 				<thead class="text-center">
 					<tr>
 						<th rowspan="2" width="2%">No</th>
@@ -553,6 +553,10 @@ class KunjunganController extends CI_Controller
 					</tr>
 					</tfoot>
 				</table>
+				<div style="float: right; margin-right: 3.5%;">
+				<p>Kepala Instalasi RM</p><br>
+				<p>Deby Rosalina</p>
+				</div>
 			</div>
 			';
 		$dompdf->loadHtml($html);

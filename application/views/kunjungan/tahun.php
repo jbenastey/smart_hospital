@@ -277,13 +277,7 @@
 		</div>
 		<?php
 		else:
-			if ($this->uri->segment(2) == null):
-				?>
-				<div class="alert alert-info">
-					<h5><i class="fa fa-info-circle"></i> Pilih Tahun</h5>
-				</div>
-			<?php
-			else:
+			if ($this->uri->segment(2) != null):
 				?>
 				<div class="alert alert-info">
 					<h5><i class="fa fa-warning"></i> Belum ada Data Kunjungan</h5>

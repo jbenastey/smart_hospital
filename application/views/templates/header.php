@@ -26,7 +26,7 @@
 	<!-- Google Font: Source Sans Pro -->
 	<link href="<?= base_url() ?>asset/dist/css/css.css" rel="stylesheet">
 	<link href="<?= base_url() ?>asset/dist/css/select2.min.css" rel="stylesheet">
-	<link rel="icon" href="<?= base_url() ?>asset/image/download.jpg" type="image/x-icon"/>
+	<link rel="icon" href="<?= base_url() ?>asset/image/smart-hospital.jpeg" type="image/x-icon"/>
 <!--	<link rel="stylesheet" href="--><?//= base_url() ?><!--asset/dist/css/sweetalert2.min.css">-->
 </head>
 <body class="hold-transition sidebar-mini" style="margin: 0;">
