@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="card-header">
-		<h3 class="card-title float-left">Hasil Prediksi Jumlah Kunjungan Pasien Rawat Jalan</h3>
+		<h3 class="card-title float-left">Hasil Prediksi Jumlah Kunjungan Pasien Rawat Jalan Bulan <?= bulan(date('m')) ?>  <?= date('Y') ?>  </h3>
 		<form action="<?= base_url('prediksi/cetak') ?>" method="post" target="_blank">
 			<input type="hidden" id="nama" name="nama">
 			<input type="hidden" id="hasil" name="hasil">

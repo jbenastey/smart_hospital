@@ -90,7 +90,7 @@ class PrediksiController extends CI_Controller
 				<hr>
 			</div>
 			<div>
-				<h4>Tanggal Prediksi : '.date_indo(date('Y-m-d')).'</h4>
+				<h4 style="text-align: center">Hasil Prediksi Jumlah Kunjungan Pasien Rawat Jalan Bulan '. bulan(date('m')).' '. date('Y') .'</h4>
 				<table cellspacing="0" border="1" width="100%" style="text-align: center">
 				<thead class="text-center">
 					<tr>

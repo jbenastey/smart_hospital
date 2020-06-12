@@ -151,11 +151,15 @@ function cariY(a, b, n) {
 function saran(y) {
 	var hasil = '';
 	if (y <= 20) {
-		hasil = 'Tutup';
+		hasil = '<b>Tutup</b>';
 	} else if (y > 20 && y <= 700) {
-		hasil = 'Buka';
+		hasil = '<b>Buka</b><br><i>Stabil</i>';
 	} else {
-		hasil = 'Penambahan SDM dan Sarana'
+		hasil = '<b>Buka</b><br>' +
+			'<i>Jumlah Dokter: 5</i><br>' +
+			'<i>Jumlah Kertas Pendaftaran: 5</i><br>' +
+			'<i>Jumlah Resepsionis: 8</i>'
+			;
 	}
 	return hasil;
 }
