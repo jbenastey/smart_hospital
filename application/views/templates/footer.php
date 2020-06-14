@@ -56,7 +56,7 @@
 <script src="<?= base_url() ?>asset/dist/js/select2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>asset/js/jquery.doubleScroll.js"></script>
 
-<script src="<?= base_url() ?>asset/js/apps.js"></script>
+<script src="<?=base_url()?>asset/plugins/chart.js/Chart.min.js"></script>
 <!-- 
 <script src="<?= base_url() ?>asset/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>asset/plugins/datatables/dataTables.bootstrap4.min.js"></script> -->
@@ -65,6 +65,9 @@
 <script type="text/javascript" src="<?php echo base_url() ?>asset/js/dataTables.bootstrap4.min.js"></script>
 
 <script src="<?=base_url()?>asset/dist/js/sweetalert2.all.js"></script>
+
+<script src="<?= base_url() ?>asset/js/apps.js"></script>
+<script src="<?= base_url() ?>asset/js/grafik.js"></script>
 
 <script>
   $(document).ready(function() {

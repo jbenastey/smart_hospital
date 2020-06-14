@@ -73,6 +73,8 @@ $route['kunjungan/laporan/(:any)'] = 'KunjunganController/laporan/$1';
 $route['kunjungan/cetak/(:any)'] = 'KunjunganController/cetak/$1';
 
 $route['prediksi'] = 'PrediksiController/index';
+$route['data-grafik/(:any)'] = 'PrediksiController/dataGrafik/$1';
+$route['prediksi-grafik'] = 'PrediksiController/grafik';
 $route['prediksi/praproses'] = 'PrediksiController/praproses';
 $route['prediksi/cetak'] = 'PrediksiController/cetak';
 

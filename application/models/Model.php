@@ -85,6 +85,14 @@ class Model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function getDataGrafik($idPoli){
+		$this->db->from('kunjungan');
+		$this->db->where('id_poli',$idPoli);
+		$this->db->order_by('id_kunjungan','ASC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	public function getPoli($tahun){
 		$this->db->distinct();
 		$this->db->select('poli.nama_poli');

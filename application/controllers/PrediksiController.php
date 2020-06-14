@@ -128,6 +128,27 @@ class PrediksiController extends CI_Controller
 		$dompdf->stream('Hasil Prediksi Jumlah Kunjungan Pasien Rawat Jalan' ,array('Attachment'=>0));
 	}
 
+	public function grafik(){
+		$data['poli'] = $this->Model->get('poli');
+		$this->load->view('templates/header');
+		$this->load->view('prediksi/grafik',$data);
+		$this->load->view('templates/footer');
+	}
+
+	public function dataGrafik($poli){
+		$polid = $this->Model->getDataGrafik($poli);
+		$data = array(
+			'label' => array(),
+			'jumlah' => array()
+		);
+		foreach ($polid as $key=>$value) {
+			array_push($data['label'],$value['bulan'].' '.$value['tahun']);
+			array_push($data['jumlah'],$value['jumlah_kunjungan']);
+		}
+
+		echo  json_encode($data);
+	}
+
 	function cekMinus($Y) {
 		$hasil = 0;
 		if ($Y < 0) {
