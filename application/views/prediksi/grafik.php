@@ -10,11 +10,13 @@
 			<select name="bulan" class="form-control poli" id="exampleInputEmail1">
 				<option selected disabled>- Pilih Poli -</option>
 				<?php
+				$n = 0;
 				foreach ($poli as $key => $value):
 					if ($value['status'] == 'Aktif'):
 						?>
-						<option value="<?= $value['id_poli'] ?>"><?= $value['nama_poli'] ?></option>
+						<option value="<?= $value['id_poli'].'-'.$n ?>"><?= $value['nama_poli'] ?></option>
 					<?php
+					$n++;
 					endif;
 				endforeach;
 				?>

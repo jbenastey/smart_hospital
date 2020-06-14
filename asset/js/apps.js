@@ -68,6 +68,8 @@ $(document).ready(function () {
 		})
 	})
 
+	var hasil = [];
+
 	$.ajax({
 		url: local + 'prediksi/praproses',
 		type: 'GET',
@@ -114,6 +116,7 @@ $(document).ready(function () {
 				Y.push(cariY(a[i], b[i], (n[i] + 1)));
 				ket.push(keterangan(y, Y[i]));
 				sar.push(saran(Y[i]));
+				hasil.push(cekMinus(Math.round(Y[i])));
 
 				$('#hasil-table > tbody:last-child').append(
 					'<tr>' +
@@ -131,6 +134,88 @@ $(document).ready(function () {
 			$('#saran').val(JSON.stringify(sar));
 		}
 	})
+
+	'use strict';
+
+	var root = window.location.origin + '/smart_hospital/';
+
+	var ticksStyle = {
+		fontColor: '#495057',
+		fontStyle: 'bold'
+	};
+
+	var mode = 'index';
+	var intersect = true;
+
+
+	$('.poli').change(function () {
+		$('#chartnya').html(
+			'<div class="chart">' +
+			'<canvas id="chart-hospital" width="1000" height="380"></canvas>' +
+			'</div>'
+		);
+		var idnya = $(this).val();
+		var id = idnya.split('-');
+		$.ajax({
+			url: root + 'data-grafik/'+id[0],
+			type: 'GET',
+			async: true,
+			cache: false,
+			dataType: 'json',
+			success: function (response) {
+				var label = response.label;
+				var jumlah = response.jumlah;
+				label.push('Hasil Prediksi');
+				jumlah.push(hasil[id[1]]);
+
+				var $chart = $('#chart-hospital');
+				var salesChart = new Chart($chart, {
+					type: 'line',
+					data: {
+						labels: label,
+						datasets: [
+							{
+								label: 'Jumlah',
+								backgroundColor: 'rgba(0,123,255,0.49)',
+								borderColor: '#007bff',
+								data: jumlah
+							},
+						]
+					},
+					options: {
+						maintainAspectRatio: false,
+						tooltips: {
+							mode: mode,
+							intersect: intersect
+						},
+						hover: {
+							mode: mode,
+							intersect: intersect
+						},
+						legend: {
+							display: true,
+							position: 'bottom',
+						},
+						scales: {
+							yAxes:[{
+								ticks: {
+									beginAtZero : true
+								}
+							}]
+						},
+						title: {
+							display: false,
+							text: 'Jumlah'
+						},
+					}
+				});
+			},
+			error: function (response) {
+				console.log(response)
+			}
+		})
+	})
+
 });
 
 function cariB(Ex, Ey, Exy, Ex2, Ey2, n) {

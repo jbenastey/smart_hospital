@@ -139,11 +139,13 @@ class PrediksiController extends CI_Controller
 		$polid = $this->Model->getDataGrafik($poli);
 		$data = array(
 			'label' => array(),
-			'jumlah' => array()
+			'jumlah' => array(),
+			'id' => array()
 		);
 		foreach ($polid as $key=>$value) {
 			array_push($data['label'],$value['bulan'].' '.$value['tahun']);
 			array_push($data['jumlah'],$value['jumlah_kunjungan']);
+			array_push($data['id'],$value['id_poli']);
 		}
 
 		echo  json_encode($data);
